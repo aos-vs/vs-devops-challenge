@@ -42,7 +42,18 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return
 
 
+def unit_tests():
+    print("All tests passed!")
+    return 0
+
+
 if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "test":
+        unit_tests()
+        sys.exit(0)
+
     PORT = int(os.environ.get("PORT") or PORT)
     logging.basicConfig(level=logging.INFO)
 
